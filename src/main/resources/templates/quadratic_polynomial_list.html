@@ -5,30 +5,40 @@
     <meta charset="UTF-8">
     <title>Квадратні рівняння</title>
 </head>
+<style>
+    .container{
+        margin-top: 10%;
+        text-align: center;
+    }
+</style>
 <body>
 <div class="container">
-    <h2>Квадратні рівняння</h2>
+    <h2>Квадратне рівняння</h2>
+    <h3>ax² + bx + c = 0</h3>
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Квадратне рівняння</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
             <th>Корені</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pol :${quadraticPolynomials}">
+            <td th:text="${pol.getA()}"></td>
+            <td th:text="${pol.getB()}"></td>
+            <td th:text="${pol.getC()}"></td>
             <td>
-                <span th:text="${pol.getA()}">x²</span>
-                <span th:text="${pol.getB()<0} ? ${pol.getB()} : '+'"></span>
-                <span th:text="${pol.getB()}">x</span>
-                <span th:text="${pol.getC()<0} ? ${pol.getC()} : '+'"></span>
-                <span th:text="${pol.getC()<0}"></span>
+                <p th:each="root :${pol.getRoots()}" th:text="${root}"></p>
+                <p th:if="${pol.getRoots().isEmpty()}">Немає коренів</p>
             </td>
-            <td th:each="root :${roots}" th:text="${root} + ';'"></td>
         </tr>
         </tbody>
     </table>
-    <form action="/" method="get" style="text-align: center"><button>Назад</button></form>
+    <form action="/" method="get" style="text-align: center">
+        <button class="btn btn-primary btn-lg">Нове рівняння</button>
+    </form>
 </div>
 </body>
 </html>

@@ -1,13 +1,12 @@
 package com.sqrt.controller;
 
 import com.sqrt.entity.QuadraticPolynomial;
+import com.sqrt.exception.NoRootsException;
 import com.sqrt.service.QuadraticPolynomialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,9 +24,8 @@ public class QuadraticPolynomialController {
     }
 
     @PostMapping
-    public String solvePolynomial(@ModelAttribute("quadraticPolynomial") QuadraticPolynomial quadraticPolynomial, Model model){
+    public String solvePolynomial(@ModelAttribute("quadraticPolynomial") QuadraticPolynomial quadraticPolynomial){
         quadraticPolynomialService.savePolynomial(quadraticPolynomial);
-        model.addAttribute("roots", (List<Double>) quadraticPolynomial.getRoots());
         return "quadratic_polynomial_roots";
     }
 

@@ -29,12 +29,12 @@
 <div class="container">
     <p class="quadratic">ax² + bx + c = 0</p>
     <p>Введіть аргументи квадратного рівняння</p>
-    <form action="/" method="post">
-        <input type="number" id="a" th:value="${quadraticPolynomial.a}" placeholder="a" required>
+    <form action="/" method="post" th:object="${quadraticPolynomial}">
+        <input type="number" id="a" th:field="*{a}" placeholder="a" required>
 
-        <input type="number" id="b" th:value="${quadraticPolynomial.b}" placeholder="b">
+        <input type="number" id="b" th:field="*{b}" placeholder="b" required>
 
-        <input type="number" id="c" th:value="${quadraticPolynomial.c}" placeholder="c">
+        <input type="number" id="c" th:field="*{c}" placeholder="c" required>
         <button type="submit" class="btn btn-primary btn-lg">Розрахувати</button>
     </form>
 </div>

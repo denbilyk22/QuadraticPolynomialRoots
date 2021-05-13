@@ -9,13 +9,13 @@ public class QuadraticPolynomial {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "a")
+    @Column(name = "a", nullable = false)
     private Double a;
 
-    @Column(name = "b", columnDefinition = "double default 0")
+    @Column(name = "b", nullable = false)
     private Double b;
 
-    @Column(name = "c", columnDefinition = "double default 0")
+    @Column(name = "c", nullable = false)
     private Double c;
 
     @ElementCollection

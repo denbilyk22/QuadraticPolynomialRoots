@@ -12,10 +12,9 @@
     }
 </style>
 <body>
-<div th:object="${quadraticPolynomial}" class="container">
-    <p>Корені :</p>
-    <p th:each="root :*{getRoots()}" th:text="${root}"></p>
-    <form action="/quadraticPolynomials" method="get"><button class="btn btn-primary">Всі рівняння</button></form>
+<div class="container">
+    <p th:object="${noRootsException}" th:text="*{getMessage()}"></p>
+    <form action="/quadraticPolynomials" method="get"><button class="btn btn-primary">Назад</button></form>
 </div>
 </body>
 </html>

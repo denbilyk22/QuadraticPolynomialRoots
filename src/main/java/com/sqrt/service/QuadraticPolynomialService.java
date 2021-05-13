@@ -1,6 +1,7 @@
 package com.sqrt.service;
 
 import com.sqrt.entity.QuadraticPolynomial;
+import com.sqrt.exception.NoRootsException;
 
 import java.util.List;
 

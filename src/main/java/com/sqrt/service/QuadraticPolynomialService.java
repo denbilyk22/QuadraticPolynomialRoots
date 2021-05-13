@@ -8,5 +8,5 @@ public interface QuadraticPolynomialService {
 
     List<QuadraticPolynomial> readAllQuadraticPolynomials();
 
-    void calculateQuadraticPolynomial(QuadraticPolynomial quadraticPolynomial);
+    void savePolynomial(QuadraticPolynomial quadraticPolynomial);
 }

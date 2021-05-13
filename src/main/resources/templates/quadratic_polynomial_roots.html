@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Корені рівняння</title>
 </head>
-<body>
-
+<body style="margin: 18% 0 0 50%">
+<div th:object="${quadraticPolynomial}">
+    Roots of <span th:text="${quadraticPolynomial.getA()}">x²</span>
+    <span th:text="${quadraticPolynomial.getB()<0} ? ${quadraticPolynomial.getB()} : '+'"></span>
+    <span th:text="${quadraticPolynomial.getB()}">x</span>
+    <span th:text="${quadraticPolynomial.getC()<0} ? ${quadraticPolynomial.getC()} : '+'"></span>
+    <span th:text="${quadraticPolynomial.getC()<0}"></span>
+    are:
+</div>
+<form action="/quadraticPolynomials" method="get"><button>Назад</button></form>
 </body>
 </html>

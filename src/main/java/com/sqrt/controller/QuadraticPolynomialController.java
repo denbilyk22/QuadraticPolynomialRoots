@@ -25,7 +25,9 @@ public class QuadraticPolynomialController {
     }
 
     @PostMapping
-    public String calculateSquareRoot(@ModelAttribute("quadraticPolynomial") QuadraticPolynomial quadraticPolynomial){
+    public String solvePolynomial(@ModelAttribute("quadraticPolynomial") QuadraticPolynomial quadraticPolynomial, Model model){
+        quadraticPolynomialService.savePolynomial(quadraticPolynomial);
+        model.addAttribute("roots", (List<Double>) quadraticPolynomial.getRoots());
         return "quadratic_polynomial_roots";
     }
 

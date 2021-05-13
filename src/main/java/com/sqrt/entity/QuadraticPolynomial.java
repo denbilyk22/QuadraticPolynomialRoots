@@ -9,7 +9,7 @@ public class QuadraticPolynomial {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "a", columnDefinition = "double default 0")
+    @Column(name = "a")
     private Double a;
 
     @Column(name = "b", columnDefinition = "double default 0")
@@ -18,8 +18,9 @@ public class QuadraticPolynomial {
     @Column(name = "c", columnDefinition = "double default 0")
     private Double c;
 
+    @ElementCollection
     @Column(name = "roots")
-    private Object roots;
+    private List<Double> roots;
 
     public Long getId() {
         return id;
@@ -53,11 +54,11 @@ public class QuadraticPolynomial {
         this.c = c;
     }
 
-    public Object getRoots() {
+    public List<Double> getRoots() {
         return roots;
     }
 
-    public void setRoots(Object roots) {
+    public void setRoots(List<Double> roots) {
         this.roots = roots;
     }
 }

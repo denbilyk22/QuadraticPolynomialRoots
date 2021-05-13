@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Вирішити квадратне рівняння</title>
 </head>
-<body>
+<style>
+    input{
+        display: flex;
+        margin-bottom: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 150px;
+    }
+    .quadratic{
+        border: 1px solid aqua;
+        padding: 10px;
+        width: 180px;
+        margin: auto;
+    }
+    .container{
+        text-align: center;
+        margin-top: 10%;
+    }
+</style>
 
+<body>
+<div class="container">
+    <p class="quadratic">ax² + bx + c = 0</p>
+    <p>Введіть аргументи квадратного рівняння</p>
+    <form action="/" method="post">
+        <input type="number" id="a" th:value="${quadraticPolynomial.a}" placeholder="a" required>
+
+        <input type="number" id="b" th:value="${quadraticPolynomial.b}" placeholder="b">
+
+        <input type="number" id="c" th:value="${quadraticPolynomial.c}" placeholder="c">
+        <button type="submit" class="btn btn-primary btn-lg">Розрахувати</button>
+    </form>
+</div>
 </body>
 </html>

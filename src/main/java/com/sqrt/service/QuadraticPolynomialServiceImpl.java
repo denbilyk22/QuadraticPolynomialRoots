@@ -20,19 +20,23 @@ public class QuadraticPolynomialServiceImpl implements QuadraticPolynomialServic
     }
 
     @Override
-    public void calculateQuadraticPolynomial(QuadraticPolynomial quadraticPolynomial) {
+    public void savePolynomial(QuadraticPolynomial quadraticPolynomial) {
+        solvePolynomial(quadraticPolynomial);
+        quadraticPolynomialRepository.save(quadraticPolynomial);
+    }
 
+    private void solvePolynomial(QuadraticPolynomial quadraticPolynomial) {
         double a = quadraticPolynomial.getA();
         double b = quadraticPolynomial.getB();
         double c = quadraticPolynomial.getC();
 
         List<Double> roots = new ArrayList<>();
 
-        double discriminant = Math.pow(b, 2) - 4 * a * c;
+        double discriminant = Math.pow(b, 2) - (4 * a * c);
 
         if(discriminant > 0){
-            double x1 = (-b + Math.sqrt(discriminant)) / 2*a;
-            double x2 = (-b - Math.sqrt(discriminant)) / 2*a;
+            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
             roots.add(x1);
             roots.add(x2);
         }
@@ -43,6 +47,5 @@ public class QuadraticPolynomialServiceImpl implements QuadraticPolynomialServic
         }
 
         quadraticPolynomial.setRoots(roots);
-        quadraticPolynomialRepository.save(quadraticPolynomial);
     }
 }

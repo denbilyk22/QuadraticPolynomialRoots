@@ -15,6 +15,7 @@
 <div th:object="${quadraticPolynomial}" class="container">
     <p>Корені :</p>
     <p th:each="root :*{getRoots()}" th:text="${root}"></p>
+    <p th:if="${quadraticPolynomial.getRoots().isEmpty()}">Коренів немає</p>
     <form action="/quadraticPolynomials" method="get"><button class="btn btn-primary">Всі рівняння</button></form>
 </div>
 </body>

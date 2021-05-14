@@ -1,7 +1,6 @@
 package com.sqrt.controller;
 
 import com.sqrt.entity.QuadraticPolynomial;
-import com.sqrt.exception.NoRootsException;
 import com.sqrt.service.QuadraticPolynomialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +12,12 @@ import java.util.List;
 @Controller
 public class QuadraticPolynomialController {
 
+    private final QuadraticPolynomialService quadraticPolynomialService;
+
     @Autowired
-    private QuadraticPolynomialService quadraticPolynomialService;
+    public QuadraticPolynomialController(QuadraticPolynomialService quadraticPolynomialService) {
+        this.quadraticPolynomialService = quadraticPolynomialService;
+    }
 
     @GetMapping
     public String homePage(Model model){

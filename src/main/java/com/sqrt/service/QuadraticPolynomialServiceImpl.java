@@ -1,20 +1,22 @@
 package com.sqrt.service;
 
 import com.sqrt.entity.QuadraticPolynomial;
-import com.sqrt.exception.NoRootsException;
 import com.sqrt.repository.QuadraticPolynomialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class QuadraticPolynomialServiceImpl implements QuadraticPolynomialService {
 
+    private final QuadraticPolynomialRepository quadraticPolynomialRepository;
+
     @Autowired
-    QuadraticPolynomialRepository quadraticPolynomialRepository;
+    public QuadraticPolynomialServiceImpl(QuadraticPolynomialRepository quadraticPolynomialRepository) {
+        this.quadraticPolynomialRepository = quadraticPolynomialRepository;
+    }
 
     @Override
     public List<QuadraticPolynomial> readAllQuadraticPolynomials() {
@@ -43,13 +45,9 @@ public class QuadraticPolynomialServiceImpl implements QuadraticPolynomialServic
             roots.add(x2);
         }
 
-        else if(discriminant == 0){
+        if(discriminant == 0){
             double x = -b / (2 * a);
             roots.add(x);
-        }
-
-        else {
-            throw new NoRootsException("Коренів немає, дискримінант менше нуля!");
         }
 
         quadraticPolynomial.setRoots(roots);

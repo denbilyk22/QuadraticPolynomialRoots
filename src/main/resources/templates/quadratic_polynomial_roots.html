@@ -10,9 +10,17 @@
         text-align: center;
         margin-top: 10%;
     }
+    .quadratic{
+        border: 1px solid aqua;
+        padding: 10px;
+        width: 180px;
+        margin: auto;
+    }
 </style>
 <body>
 <div th:object="${quadraticPolynomial}" class="container">
+    <p class="quadratic">ax² + bx + c = 0</p>
+    <p class="quadratic">a=<span th:text="*{getA()}"></span>, b=<span th:text="*{getB()}"></span>, c=<span th:text="*{getC()}"></span></p>
     <p>Корені :</p>
     <p th:each="root :*{getRoots()}" th:text="${root}"></p>
     <p th:if="${quadraticPolynomial.getRoots().isEmpty()}">Коренів немає</p>

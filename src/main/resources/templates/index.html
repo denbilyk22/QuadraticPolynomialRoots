@@ -23,6 +23,9 @@
         text-align: center;
         margin-top: 10%;
     }
+    form{
+        margin-bottom: 10px;
+    }
 </style>
 
 <body>
@@ -35,7 +38,10 @@
         <input type="number" id="b" th:field="*{b}" placeholder="b" required>
 
         <input type="number" id="c" th:field="*{c}" placeholder="c" required>
-        <button type="submit" class="btn btn-primary btn-lg">Розрахувати</button>
+        <button type="submit" class="btn btn-success btn-lg">Розрахувати</button>
+    </form>
+    <form action="/quadraticPolynomials">
+        <button type="submit" class="btn btn-primary btn-lg">Всі рівняння</button>
     </form>
 </div>
 </body>
